@@ -11,6 +11,7 @@
     "@types/react-dom": "^18.2.18",
     "antd": "^5.14.0",
     "dayjs": "^1.11.10",
+    "gh-pages": "^6.1.1",
     "mobx": "^6.12.0",
     "mobx-react-lite": "^4.0.5",
     "react": "^18.2.0",
@@ -24,7 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -40,23 +42,23 @@
   },
   "eslintConfig": {
     "extends": [
-        "react-app"
+      "react-app"
     ],
     "overrides": [
-        {
-            "files": [
-                "*.ts",
-                "*.tsx"
-            ]
-        }
+      {
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ]
+      }
     ],
     "ignorePatterns": [
-        "node_modules",
-        "dist",
-        "build",
-        ".eslintrc.js"
+      "node_modules",
+      "dist",
+      "build",
+      ".eslintrc.js"
     ]
-},
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
