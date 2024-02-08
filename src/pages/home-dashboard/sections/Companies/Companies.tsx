@@ -8,7 +8,6 @@ interface CompaniesProps {
     companies: CompanyInformation[];
     onCompanyClick: (company: CompanyInformation) => void;
     selectedCompany?: CompanyInformation;
-
 }
 
 export function Companies({selectedCompany, companies, onCompanyClick}: CompaniesProps): JSX.Element {
@@ -18,7 +17,7 @@ export function Companies({selectedCompany, companies, onCompanyClick}: Companie
         <CompaniesListContainer>
             <ListTitle 
                 level={2} 
-                onClick={()=>setSortDirection(prev => prev === "desc" ? "asc": "desc")}
+                onClick={() => setSortDirection(prev => prev === "desc" ? "asc" : "desc")}
             >
                 Companies {sortDirection === "desc" ? <CaretDownOutlined /> : <CaretUpOutlined />}
             </ListTitle>

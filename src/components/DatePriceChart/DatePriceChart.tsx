@@ -1,6 +1,6 @@
 import { ResponsiveLine } from "@nivo/line";
-import { CompanyDayPrice } from "types/companyDayPrice";
 import { getChartProps } from "./utils/getChartProps";
+import { CompanyDayPrice } from "types/company";
 
 interface DatePriceChartProps {
     prices: CompanyDayPrice[];

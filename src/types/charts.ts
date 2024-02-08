@@ -1,6 +1,5 @@
 export interface ChartCompanyDayPrice {
     id: string;
-    color: string;
     data: ChartValue[];
 }
 

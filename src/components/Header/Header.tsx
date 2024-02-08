@@ -9,13 +9,13 @@ interface HeaderProps {
 }
 
 export function Header({selectedCompany, handleDateRangeChange}: HeaderProps): JSX.Element {
-    const sortedDatePrices = selectedCompany?.dayPricesList;
-    const maxValue = sortedDatePrices?.length || 100;
+    const datePrices = selectedCompany?.dayPricesList;
+    const maxValue = datePrices?.length || 100;
 
     const marks: SliderSingleProps["marks"] = {
-        0: sortedDatePrices ? dayjs(sortedDatePrices[0]?.date).format("DD/MM/YYYY") : null,
+        0: datePrices ? dayjs(datePrices[0]?.date).format("DD/MM/YYYY") : null,
         maxValue: {
-            label: sortedDatePrices ? dayjs(sortedDatePrices[maxValue]?.date).format("DD/MM/YYYY") : null,
+            label: datePrices ? dayjs(datePrices[maxValue - 1]?.date).format("DD/MM/YYYY") : null,
             style: {
                 transform: "translateX(400%)",
                 color: "#000"
@@ -31,7 +31,7 @@ export function Header({selectedCompany, handleDateRangeChange}: HeaderProps): J
                 style={{display: "inline-block"}}
                 marks={marks}
                 tooltip={{
-                    formatter: (value)=><div>{(sortedDatePrices && value !== undefined) ? dayjs(sortedDatePrices[value]?.date).format("DD/MM/YYYY") : value}</div>
+                    formatter: (value)=> <div>{(datePrices && value !== undefined) ? dayjs(datePrices[value]?.date).format("DD/MM/YYYY") : value}</div>
                 }}
                 min={0}
                 max={maxValue}

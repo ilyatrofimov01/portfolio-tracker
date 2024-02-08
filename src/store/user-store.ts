@@ -11,7 +11,6 @@ class UserStore {
     public setUser(user: User): void {
         this.user = user;
     }
-
 }
 
 export default new UserStore();

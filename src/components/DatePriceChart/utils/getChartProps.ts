@@ -1,5 +1,5 @@
 import { ChartCompanyDayPrice, ChartValue } from "types/charts";
-import { CompanyDayPrice } from "types/companyDayPrice";
+import { CompanyDayPrice } from "types/company";
 import dayjs from "dayjs";
 
 interface GetChartProps {
@@ -25,12 +25,10 @@ export function getChartProps(prices: CompanyDayPrice[], dateRange?: [number, nu
 
     const dataList = [{
         id:"Price vs Date",
-        color: "hsl(0, 70%, 50%)",
         data: priceDate
     },
     {
         id: "Highest Price vs Date",
-        color: "hsl(0, 70%, 50%)",
         data: highestPrice
     }];
 

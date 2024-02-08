@@ -15,7 +15,9 @@ export function HomeDashboard(): JSX.Element {
         setDefaultCompany: (company) => setSelectedCompany(company)
     });
 
-    const handleDateRangeChange = (newDateRange: [number, number]): void => setDateRange(newDateRange);
+    const handleDateRangeChange = (newDateRange: [number, number]): void => {
+        setDateRange(newDateRange);
+    };
     const handleCompanyClick = (company: CompanyInformation): void => {
         setSelectedCompany(company);
     };
@@ -30,13 +32,16 @@ export function HomeDashboard(): JSX.Element {
                 <CompaniesChartContainer>
                     <Charts selectedCompany={selectedCompany} dateRange={dateRange} />
                     <Companies
-                        selectedCompany={selectedCompany} companies={companies}
+                        selectedCompany={selectedCompany}
+                        companies={companies}
                         onCompanyClick={handleCompanyClick}
                     />
                 </CompaniesChartContainer>
                 <ProfileNewsContainer>
-                    <NewsSection />
-                    <ProfileSection />
+                    <NewsSection selectedCompany={selectedCompany} />
+                    <ProfileSection 
+                        companyProfile={selectedCompany?.profile}
+                    />
                 </ProfileNewsContainer>
             </HomeDashboardContainer>
         </Spin>

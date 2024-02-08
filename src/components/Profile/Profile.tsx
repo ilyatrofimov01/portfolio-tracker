@@ -1,15 +1,22 @@
-import { observer } from "mobx-react-lite";
 import { ProfileContainer } from "./styled-components";
 import { Typography } from "antd";
-import userStore from "store/user-store";
+import { CompanyProfile } from "types/company";
 
-export const Profile = observer(function Profile(): JSX.Element {
+interface ProfileProps {
+    companyProfile?: CompanyProfile;
+}
+
+export function Profile({companyProfile}: ProfileProps): JSX.Element {
+    if (!companyProfile) {
+        return (<></>);
+    }
+
     return (
         <ProfileContainer>
-            <Typography>Industry: {userStore.user?.industry}</Typography>
-            <Typography>Sector: {userStore.user?.sector}</Typography>
-            <Typography>Employees: {userStore.user?.employees}</Typography>
-            <Typography>Equity: {userStore.user?.equity}</Typography>
+            <Typography>Industry: {companyProfile.industry}</Typography>
+            <Typography>Sector: {companyProfile.sector}</Typography>
+            <Typography>Employees: {companyProfile.employees}</Typography>
+            <Typography>Equity: {companyProfile.equity}</Typography>
         </ProfileContainer>
     );
-});
+}

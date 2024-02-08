@@ -1,11 +1,15 @@
-import { observer } from "mobx-react-lite";
 import { ItemDate, ItemSnippet, ItemTitle, NewsContainer, NewsListItem } from "./styled-components";
 import { useNewsLoad } from "./hooks/useNewsLoad";
 import { Spin } from "antd";
 import dayJS from "dayjs";
+import { CompanyInformation } from "types/company";
 
-export const NewsList = observer(function NewsList(): JSX.Element {
-    const {loading, newsList} = useNewsLoad();
+interface NewsListProps {
+    selectedCompany: CompanyInformation;
+}
+
+export function NewsList({selectedCompany}: NewsListProps): JSX.Element {
+    const {loading, newsList} = useNewsLoad({companyId: selectedCompany?.id});
 
     const onNewsClick = (url: string): void => {
         window.open(url, "_blank");
@@ -28,4 +32,4 @@ export const NewsList = observer(function NewsList(): JSX.Element {
             </NewsContainer>
         </Spin>
     );
-});
+}

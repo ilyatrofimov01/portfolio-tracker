@@ -15,7 +15,6 @@ export const CompaniesChartContainer = styled(Flex)({
 
     "@media (max-width: 1400px)": {
         flexDirection: "column-reverse",
-
     },
 });
 
@@ -27,6 +26,5 @@ export const ProfileNewsContainer = styled(Flex)({
 
     "@media (max-width: 1400px)": {
         flexDirection: "column",
-
     },
 });

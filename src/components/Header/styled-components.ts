@@ -12,7 +12,6 @@ export const HeaderContainer = styled(Flex)({
 
     "@media (max-width: 800px)": {
         flexDirection: "column",
-
     },
 });
 

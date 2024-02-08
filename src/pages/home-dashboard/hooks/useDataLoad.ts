@@ -40,11 +40,10 @@ export function useDataLoad({setDefaultCompany}: UseDataLoadProps): UseDataLoad 
                 }, 1000);
             });
             userStore.setUser(user);
-            setLoading(false);
             const sortedCompaniesDayPrices = companies.map((company) => ({
                 ...company,
                 dayPrices: company.dayPricesList.sort((dayPrice, dayPrice2) =>
-                    dayjs(dayPrice.date).isAfter(dayjs(dayPrice2.date)) ? -1 : 1)
+                    dayjs(dayPrice.date).isAfter(dayjs(dayPrice2.date)) ? 1 : -1)
             }));
 
             if (setDefaultCompany && sortedCompaniesDayPrices.length > 0) {
@@ -54,9 +53,9 @@ export function useDataLoad({setDefaultCompany}: UseDataLoadProps): UseDataLoad 
             setCompanies(sortedCompaniesDayPrices); 
         } catch (e) {
             setError(true);
-            setLoading(false);
         }
-
+        
+        setLoading(false);
     };
 
     useEffect(() => {

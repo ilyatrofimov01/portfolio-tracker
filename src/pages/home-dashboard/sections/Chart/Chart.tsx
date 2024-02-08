@@ -12,7 +12,7 @@ export function Charts({selectedCompany, dateRange}: ChartsProps): JSX.Element {
   
     return (
         <DatePriceChartContainer>
-            <Typography.Title level={2}>Apple Inc. Prices</Typography.Title>
+            <Typography.Title level={2}>{selectedCompany?.name}</Typography.Title>
             <DatePriceChartWrapper>
                 {selectedCompany ? 
                     <DatePriceChart prices={selectedCompany.dayPricesList} dateRange={dateRange} /> :

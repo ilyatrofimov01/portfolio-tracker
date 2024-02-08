@@ -1,4 +1,4 @@
-import { CompanyDayPrice } from "types/companyDayPrice";
+import { CompanyDayPrice } from "types/company";
 
 export const nvidiaData: CompanyDayPrice[] = [
     {
