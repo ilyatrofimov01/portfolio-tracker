@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import authService from "services/auth/auth-service";
 
 export function PrivateRoutes(): JSX.Element {
-    return <Outlet />;
 
-    // return (
-    //     authService.accessToken ? <Outlet /> : <Navigate to="/login" />
-    // );
+    return (
+        authService.accessToken ? <Outlet /> : <Navigate to="/login" />
+    );
 }
 
 export default PrivateRoutes;
