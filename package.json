@@ -1,5 +1,6 @@
 {
   "name": "portfolio-tracker",
+  "homepage": "https://ilyatrofimov01.github.io/portfolio-tracker/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
