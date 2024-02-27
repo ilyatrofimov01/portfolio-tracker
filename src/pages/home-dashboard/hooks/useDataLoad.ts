@@ -19,7 +19,6 @@ interface UseDataLoad {
 interface DataLoadResponse {
     companies: CompanyInformation[];
     user: User;
-
 }
 
 export function useDataLoad({setDefaultCompany}: UseDataLoadProps): UseDataLoad {

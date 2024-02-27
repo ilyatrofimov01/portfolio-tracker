@@ -1,5 +1,5 @@
 import { Typography } from "antd";
-import { DatePriceChartContainer, DatePriceChartWrapper } from "./styled-components";
+import { DatePriceChartContainer, DatePriceChartWrapper, StyledTitle } from "./styled-components";
 import { DatePriceChart } from "components/DatePriceChart";
 import { CompanyInformation } from "types/company";
 
@@ -9,10 +9,9 @@ interface ChartsProps {
 }
 
 export function Charts({selectedCompany, dateRange}: ChartsProps): JSX.Element {  
-  
     return (
         <DatePriceChartContainer>
-            <Typography.Title level={2}>{selectedCompany?.name}</Typography.Title>
+            <StyledTitle level={2}>{selectedCompany?.name}</StyledTitle>
             <DatePriceChartWrapper>
                 {selectedCompany ? 
                     <DatePriceChart prices={selectedCompany.dayPricesList} dateRange={dateRange} /> :

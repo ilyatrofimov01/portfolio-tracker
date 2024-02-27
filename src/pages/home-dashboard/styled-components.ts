@@ -6,6 +6,8 @@ export const HomeDashboardContainer = styled("div")({
     height: "100%",
     boxSizing: "border-box",
     padding: "32px",
+    backgroundColor: "#ECF0F1",
+    minHeight: "100vh"
 });
 
 export const CompaniesChartContainer = styled(Flex)({

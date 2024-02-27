@@ -12,6 +12,7 @@ export const CompaniesListContainer = styled(Flex)({
 });
 
 export const ListTitle = styled(Typography.Title)({
+    marginTop: 0,
     cursor: "pointer",
     transition: ".3s ease",
 });

@@ -15,21 +15,17 @@ export function getChartProps(prices: CompanyDayPrice[], dateRange?: [number, nu
         y: parseFloat(price.price)
     }));
 
-    const highestPrice = displayPrices.map((price) => ({
-        x: dayjs(price.date).format("DD/MM"),
-        y: parseFloat(price.high)
-    }));
+    // const highestPrice = displayPrices.map((price) => ({
+    //     x: dayjs(price.date).format("DD/MM"),
+    //     y: parseFloat(price.high)
+    // }));
 
-    const maxY = highestPrice.reduce((acc, price) => price.y > acc ? price.y : acc, 0);
+    const maxY = priceDate.reduce((acc, price) => price.y > acc ? price.y : acc, 0);
     const minY = priceDate.reduce((acc, price) => price.y < acc ? price.y : acc, maxY);
 
     const dataList = [{
         id:"Price vs Date",
         data: priceDate
-    },
-    {
-        id: "Highest Price vs Date",
-        data: highestPrice
     }];
 
     return {

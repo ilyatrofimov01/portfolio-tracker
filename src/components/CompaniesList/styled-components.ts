@@ -20,8 +20,9 @@ export const CompaniesListItem = styled(Flex)<CompaniesListItemProps>(({selected
     borderRadius: "4px",
     boxSizing: "border-box",
     border: selected ? "1px solid #000" : "none",
+    backgroundColor: selected ? "#91caff" : "transparent",
     "&:hover": {
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#fff",
     }
 }));
 

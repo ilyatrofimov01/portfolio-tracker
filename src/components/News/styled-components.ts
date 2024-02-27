@@ -3,19 +3,20 @@ import styled from "styled-components";
 
 export const NewsContainer = styled(Flex)({
     flexDirection: "column",
-    gap: "10px"
 });
 
 export const NewsListItem = styled(Flex)({
     flexDirection: "column",
     cursor: "pointer",
     transition: ".3s ease",
-    padding:"4px 8px",
+    padding:"12px 8px",
     borderRadius: "4px",
     boxSizing: "border-box",
-    borderBottom: "1px solid gray",
     "&:hover": {
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#fff",
+    },
+    "&:not(:last-child)": {
+        borderBottom: "1px solid #d9d9d9",
     }
 });
 

@@ -6,6 +6,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.3.0",
     "@nivo/api": "^0.74.1",
+    "@nivo/core": "^0.84.0",
     "@nivo/line": "^0.84.0",
     "@types/node": "^16.18.79",
     "@types/react": "^18.2.55",

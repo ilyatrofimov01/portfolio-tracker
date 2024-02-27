@@ -6,9 +6,10 @@ interface CompaniesListProps {
     onCompanyClick: (company: CompanyInformation) => void;
     selectedCompany?: CompanyInformation;
     sortDirection?: "asc" | "desc";
+    dateRange?: [number, number];
 }
 
-export function CompaniesList({selectedCompany, companies, onCompanyClick, sortDirection}: CompaniesListProps): JSX.Element {
+export function CompaniesList({selectedCompany, companies, onCompanyClick, sortDirection, dateRange}: CompaniesListProps): JSX.Element {
     const sortedCompanies = companies.sort(((company1, company2) => {
         if (sortDirection === "desc" ) {
             return company2.currentPrice - company1.currentPrice;
@@ -16,19 +17,23 @@ export function CompaniesList({selectedCompany, companies, onCompanyClick, sortD
 
         return company1.currentPrice - company2.currentPrice;
     }));
-
+    
     return (
         <CompaniesListContainer>
-            {sortedCompanies.map((company) => (
-                <CompaniesListItem
-                    key={company.id} 
-                    selected={selectedCompany !== undefined && selectedCompany.id === company.id}
-                    onClick={() => onCompanyClick(company)}
-                >
-                    <StyledText>{company.symbol}</StyledText>
-                    <StyledText>{company.currentPrice}</StyledText>
-                </CompaniesListItem>
-            ))}
+            {sortedCompanies.map((company) => {
+                const dayPricesList = dateRange ? company.dayPricesList.slice(dateRange[0], dateRange[1] + 1) : company.dayPricesList;
+
+                return (
+                    <CompaniesListItem
+                        key={company.id} 
+                        selected={selectedCompany !== undefined && selectedCompany.id === company.id}
+                        onClick={() => onCompanyClick(company)}
+                    >
+                        <StyledText>{company.symbol}</StyledText>
+                        <StyledText>${dayPricesList[dayPricesList.length-1]?.price}</StyledText>
+                    </CompaniesListItem>
+                );
+            })}
         </CompaniesListContainer>
     );
 }

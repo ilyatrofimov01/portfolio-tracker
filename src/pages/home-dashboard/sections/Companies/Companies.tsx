@@ -8,9 +8,10 @@ interface CompaniesProps {
     companies: CompanyInformation[];
     onCompanyClick: (company: CompanyInformation) => void;
     selectedCompany?: CompanyInformation;
+    dateRange?: [number, number];
 }
 
-export function Companies({selectedCompany, companies, onCompanyClick}: CompaniesProps): JSX.Element {
+export function Companies({selectedCompany, companies, onCompanyClick, dateRange}: CompaniesProps): JSX.Element {
     const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc");
 
     return (
@@ -25,6 +26,7 @@ export function Companies({selectedCompany, companies, onCompanyClick}: Companie
                 sortDirection={sortDirection}
                 selectedCompany={selectedCompany} 
                 companies={companies}
+                dateRange={dateRange}
                 onCompanyClick={onCompanyClick}
             />
         </CompaniesListContainer>

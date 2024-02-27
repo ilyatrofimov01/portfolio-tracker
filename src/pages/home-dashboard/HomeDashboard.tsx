@@ -32,6 +32,7 @@ export function HomeDashboard(): JSX.Element {
                 <CompaniesChartContainer>
                     <Charts selectedCompany={selectedCompany} dateRange={dateRange} />
                     <Companies
+                        dateRange={dateRange}
                         selectedCompany={selectedCompany}
                         companies={companies}
                         onCompanyClick={handleCompanyClick}
